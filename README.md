@@ -8,7 +8,7 @@ Just to be clear, this isnt an extreme take on minimalism. I am positive there a
 **Warning:**
 I will assume for the rest of this guide that Fedora Linux will be installed on a physical machine as the only OS. Be sure that if the computer was previously used, that all files and information needed has been backed up externally. If you elect to follow these directions you do so at your own risk and assume full responsibility for the outcome. It is up to you to determine if your computer is compatible with Fedora and to; properly plan for, prepare for, execute, configure post install and troubleshoot attempting to follow this guide.
 
-I am posting this as personal reference but also for others benefit in case they are also interesting in a more minimal Fedora KDE setup. I originally posted this on reddit at [[How-To] Minimal KDE Install on Fedora](https://www.reddit.com/r/Fedora/comments/9a0i93/howto_minimal_kde_install_on_fedora/). I decided it would be easier to update in a repo than on reddit.
+I am posting this as personal reference but also for others benefit in case they are also interesting in a more minimal Fedora KDE setup.
 
 ## Resources for Installing Fedora KDE Minimally
 * Fedora Everything ISO can be downloaded from https://alt.fedoraproject.org/. For most people the 64 bit ISO will be the proper ISO to use. This is basically what some may call a net install ISO.
@@ -17,7 +17,7 @@ I am posting this as personal reference but also for others benefit in case they
 ## Requirements for Fedora KDE Minimal
 * Fedora Everything ISO. Made bootable via a physical disc, USB drive or via PXE. Official documentation on [Preparing Boot Media](https://docs.fedoraproject.org/en-US/fedora/f29/install-guide/install/Preparing_for_Installation/#sect-preparing-boot-media)
 * Internet connection. The ISO above included only the packages required to run the installer. All selected packages are downloaded over the internet to install. Post minimal install, internet will be required to add the packages we need.
-* If using Wifi (see the Wifi Networking portion of this guide):
+* If using Wifi (see the [Wifi Networking](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#wifi-networking) portion of this guide):
   * Know what make and chipset you are using.
   * Have an external drive or USB stick handy.
   * Place the required packages for Wiki and your Wifi card on the externla media.
@@ -42,14 +42,15 @@ The [Installation Summary](https://docs.fedoraproject.org/en-US/fedora/f29/insta
 6. Set the password for the root user. I recommend using something strong and unique.
 7. [Create a user](https://docs.fedoraproject.org/en-US/fedora/f29/install-guide/install/Installing_Using_Anaconda/#sect-installation-gui-create-user). This will be the user you will typically login as and use the computer as. If want this user to have sudo, check the box for "Make this user administrator". Set the password, again I recommend something strong and unique.
 
-Progress will be shown on screen and when complete the computer will reboot and load to a text/shell login asking for username and password. I recommend using the user create from step 7 above, assuming they had been given admin rights (sudo). You can instead use root credentials to login.
+Progress will be shown on screen and when complete the computer will reboot and load to a text/shell login asking for username and password. I recommend using the user creation from step 7 above, assuming they had been given admin rights (sudo). You can instead use root credentials to login.
 
 ## 2. Installing KDE Plasma Desktop Environtment
-I will be breaking this down into three (3) groups:
+I will be breaking this down into four (4) groups:
 
-1. Required Packages
-2. Recommended Packages
-3. Optional Packages
+1. [Required Packages](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#required-packages)
+2. [Recommended Packages](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#recommended-packages)
+3. [Optional Packages](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#optional-packages)
+4. [Other Packages](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#other-packages)
 
 As a note, packages styled as `@"Package Name"` are package groups that install many packages.
 
@@ -180,7 +181,7 @@ sudo chmod +x fedora-kde-install-req.sh
 sudo ./fedora-kde-install-req.sh
 ```
 
-This will install the packages, you will still need to execute the commands to enable SDDM, set the graphical.target and reboot. Those steps are detailed above in the "Required Packages" section of this guide. You can also add to or extend the script to install other desired packages, include/automate additonal commands, etc.
+This will install the packages, you will still need to execute the commands to enable SDDM, set the graphical.target and reboot. Those steps are detailed above in the [Required Packages](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#required-packages) section of this guide. You can also add to or extend the script to install other desired packages, include/automate additonal commands, etc.
 
 ## Tips
 The following are some bits of information to help with the processes in this guide.
@@ -196,7 +197,7 @@ The following are some bits of information to help with the processes in this gu
 * [KDE UserBase Wiki](https://userbase.kde.org/Welcome_to_KDE_UserBase) - Helpful for determinging what specific KDE packages/programs are meant for.
 
 ## Final Thoughts
-This guide should provide a solid foundation for a lean, minimalistic Fedora KDE install. If you find any packages in the "Required" section that can be removed without introducing issues please let me know.
+This guide should provide a solid foundation for a lean, minimalistic Fedora KDE install. If you find any packages in the [Required Packages](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#required-packages) section that can be removed without introducing issues please let me know.
 
 I have tested this method so far with:
 * Fedora 29

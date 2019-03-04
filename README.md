@@ -153,7 +153,7 @@ If you still cannot find the package(s) you want, consider enabling RPMFusion re
 Beyond this, check with the developer of your desired program for the recommended way to install it on Fedora.
 
 ## Shell Script to Install Required Packages (Optional)
-The `fedora-kde-install-req.sh` script in this repo can be used to install all of the required packages (does not include recommended or optional). You may execute the script as is or add your desired packages (or remove ones) to the script. This is a simple script that simply executes the `dnf install package1 package2` command from the "Required Packages" section of this guide above so you do not have to manually type all the packages to install. It does nothing else.
+The `fedora-kde-min-packages.sh` script in this repo can be used to install all of the required packages (does not include recommended or optional). You may execute the script as is or add your desired packages (or remove ones) to the script. The script simply checks it was run as sudo or root and then executes the `dnf install package1 package2` command from the "Required Packages" section of this guide above so you do not have to manually type all the packages to install. It does nothing else.
 
 One would execute this script after having installed Fedora minimal, getting internet (either Wifi or Ethernet) setup and at the "Required Packages" step in this guide. I placed the script on a USB thumb drive and plugged it into my Fedora machine.
 
@@ -171,14 +171,14 @@ sudo mount /dev/sdb /mnt/usb
 To copy the files from the mounted USB drive to the users home directory (replace `/user/` with your username):
 
 ```Bash
-cp /mnt/usb/fedora-kde-install-req.sh /home/user/
+cp /mnt/usb/fedora-kde-min-packages.sh /home/user/
 ```
 
 To execute the script (assuming your are in the your home directory:
 
 ```Bash
-sudo chmod +x fedora-kde-install-req.sh
-sudo ./fedora-kde-install-req.sh
+sudo chmod +x fedora-kde-min-packages.sh
+sudo ./fedora-kde-min-packages.sh
 ```
 
 This will install the packages, you will still need to execute the commands to enable SDDM, set the graphical.target and reboot. Those steps are detailed above in the [Required Packages](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#required-packages) section of this guide. You can also add to or extend the script to install other desired packages, include/automate additonal commands, etc.

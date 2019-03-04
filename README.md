@@ -193,7 +193,7 @@ The following are some bits of information to help with the processes in this gu
 * `df -h` (Lists all file systems)
 
 **Helpful Resources**
-* [Favorite Lesser-Known Apps](https://forum.manjaro.org/t/favorite-lesser-known-apps/57320) - Despite being i nthe Manjaro Linux forums, many of the packages mentioned here may be available on other distros including Fedora. If you are looking for apps that are not generally known by most, check the thread out.
+* [Favorite Lesser-Known Apps](https://forum.manjaro.org/t/favorite-lesser-known-apps/57320) - Despite being in the Manjaro Linux forums, many of the packages mentioned here may be available on other distros including Fedora. If you are looking for apps that are not generally known by most, check the thread out.
 * [KDE UserBase Wiki](https://userbase.kde.org/Welcome_to_KDE_UserBase) - Helpful for determinging what specific KDE packages/programs are meant for.
 
 ## Final Thoughts

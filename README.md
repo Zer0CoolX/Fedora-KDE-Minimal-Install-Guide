@@ -57,7 +57,7 @@ As a note, packages styled as `@"Package Name"` are package groups that install 
 ### Wifi Networking
 Before diving in to installing packages, if you are using Wifi for your network/internet, it may come as a surprise that while the Fedora Anaconda Installer may have "just worked" with your wifi...a minimal Fedora installation will very likely not. This creates a conundrum as we need internet to install the packages we want while likely needing some packages to install and setup Wifi.
 
-The way to resolve this (at least one way) is to have an external media with the required packages for Wifi copied to it. This should be a USB device or drive **not** also used as the boot media. As everyone can have different Wifi NIC chipsets, I am going to post some general which will vary machine to machine, user to user. It is up to you to determine what Wifi chipset you are using and what the proper firmware for it is.
+The way to resolve this (at least one way) is to have an external media with the required packages for Wifi copied to it. This should be a USB device or drive **not** also used as the boot media. As everyone can have different Wifi NIC chipsets, I am going to post some general info which will vary machine to machine, user to user. It is up to you to determine what Wifi chipset you are using and what the proper firmware for it is.
 
 I used the [Fedora Mirrors](https://admin.fedoraproject.org/mirrormanager/) site to find a site to download the packages from. Make sure you pick the right version and arch for you. I also found rpmfind helpful, but using this site is up to you.
 

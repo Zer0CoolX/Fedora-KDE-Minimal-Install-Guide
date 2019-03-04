@@ -88,8 +88,8 @@ The above will get you everything needed to boot into a GUI to login, then KDE P
 Then we need to enable sddm and set the graphical.target as the default as follows (each line is a seperate command):
 
 ```Bash
-sudo systemctl enable sddm`
-sudo systemctl set-default graphical.target`
+sudo systemctl enable sddm
+sudo systemctl set-default graphical.target
 reboot
 ```
 

@@ -104,12 +104,12 @@ Each package (or package group) is listed 1 per line below. To install a given p
 sudo dnf install package_name
 ```
 
-`@"Printing Support"`
-`@"Input Methods"`
-`@Multimedia`
-`kfind` (KDE package used for files searches)
-`plasma-pk-updates` (KDE applet for software updates)
-`plasma-discover` (KDE GUI package manager, I am not a big fan and prefer to use `dnf` from the terminal. If you elect to use it, there may be other packages to install to add features to it.)
+* `@"Printing Support"`
+* `@"Input Methods"`
+* `@Multimedia`
+* `kfind` (KDE package used for files searches)
+* `plasma-pk-updates` (KDE applet for software updates)
+* `plasma-discover` (KDE GUI package manager, I am not a big fan and prefer to use `dnf` from the terminal. If you elect to use it, there may be other packages to install to add features to it.)
 
 ### Optional Packages
 So far we dont have the typical programs most people may really want, like a browser. The beauty is at this stage we can pick and chose anything we want. You want Chrome and I want Firefox, no problem install what you want.
@@ -122,16 +122,16 @@ Each package (or package group) is listed 1 per line below. To install a given p
 sudo dnf install package_name
 ```
 
-`kgpg` (KDE package used to manage PGP)
-`kate` (KDE GUI text editor)
-`ark` (KDE GUI for working with archive files)
-`kget` (KDE downloader/download manager)
-`kcalc` (Simple KDE calculator)
-`kmouth` (KDE speech synth frontend)
-`kmousetool` (KDE automatic mouse clicker)
-`kcharselect` (KDE character map)
-`gwenview` (KDE fast and simple image and video viewer)
-`spectacle` (KDE screenshot tool)
+* `kgpg` (KDE package used to manage PGP)
+* `kate` (KDE GUI text editor)
+* `ark` (KDE GUI for working with archive files)
+* `kget` (KDE downloader/download manager)
+* `kcalc` (Simple KDE calculator)
+* `kmouth` (KDE speech synth frontend)
+* `kmousetool` (KDE automatic mouse clicker)
+* `kcharselect` (KDE character map)
+* `gwenview` (KDE fast and simple image and video viewer)
+* `spectacle` (KDE screenshot tool)
 
 ### Other Packages
 At this point you can freely install any other packages from any enabled/installed repo you like. Either use your desired GUI package manager or `dnf` from the terminal to install your desired packages. See the Tips section of this page for help finding packages in `dnf`. If the official repos do not include the packages you are looking for consider installing Fedora's official 3rd party reposititories (Fedora >= 29) via:

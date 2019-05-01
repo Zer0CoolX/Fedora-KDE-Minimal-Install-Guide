@@ -1,3 +1,5 @@
+NOTE 5/1/2019: May not support Fedora 30 yet. I am working on figuring out what is required for this to work in Fedora 30. If it works for you using Fedora 30 please comment on issue #4 [[Known Bug] Does Not Yet Support Fedora 30](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide/issues/4). Thanks
+
 ## Fedora KDE Minimal Install
 A guide to install Fedora Linux with the KDE Plasma Desktop Environment (DE) from a minimal Fedora installation. This will allow better control over which packages are included in Fedora KDE and result in a cleaner, lighter Fedora installation than the official Fedora KDE spin offers. The guide will provide step-by-step instructions to accomplish installing the KDE DE on top of a minimal Fedora install. I will also include optional, simple scripts to help with the process of installing the required packages to setup KDE on a minimal Fedora installation.
 

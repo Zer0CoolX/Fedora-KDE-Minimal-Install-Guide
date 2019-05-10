@@ -76,6 +76,8 @@ To install the above use something like `sudo dnf --disablerepo=\* install packa
 
 To connect to a wifi network see the following link to [Configure Wifi Connections](https://docs.ubuntu.com/core/en/stacks/network/network-manager/docs/configure-wifi-connections). Yes its for Ubuntu but the commands are the same. Once connected to your wifi proceed with installing the packages for KDE in the next steps.
 
+Alternatively, if you have a wired NIC as well (even a USB to NIC adapter) then you can very likely complete the full guide/install and after KDE is installed, wifi may simply "just work".
+
 From here on in this guide I will assume that a given machine has a working internet connection.
 
 ### Required Packages

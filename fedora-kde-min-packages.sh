@@ -8,7 +8,7 @@ fi
 # Install KDE Packages
 dnf install \
   @"base-x" \
-  @"Common NetworkManager Submodules"
+  @"Common NetworkManager Submodules" \
   @"Fonts" \
   @"Hardware Support" \
   adwaita-gtk2-theme \

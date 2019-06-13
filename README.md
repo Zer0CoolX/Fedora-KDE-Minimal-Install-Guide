@@ -188,6 +188,15 @@ This will install the packages, you will still need to execute the commands to e
 ## Tips
 The following are some bits of information to help with the processes in this guide.
 
+**Fixing/Setting Splash Screen and LUKs GUI Login**
+In at least Fedora 30, I found the nice splash screen to not work for me automatically. To get the bgrt Plymouth theme working I had to execute the following command:
+
+```Bash
+sudo plymouth-set-default-theme -R bgrt
+reboot
+```
+This should provide the nice splash screens for boot and LUKs login. This is sometimes refered to as flicker free boot and seems to apply mostly to machines using Intel GPU's (i915).
+
 **Helpful Commands**
 * `dnf grouplist` (Lists all available groups to install)
 * `dnf groupinfo "group name"` (Lists all the packages and groups contained within a group. Replace `group name` with the actual group name)

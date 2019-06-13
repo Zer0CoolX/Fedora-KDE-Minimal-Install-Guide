@@ -189,6 +189,7 @@ This will install the packages, you will still need to execute the commands to e
 The following are some bits of information to help with the processes in this guide.
 
 **Fixing/Setting Splash Screen and LUKs GUI Login**
+
 In at least Fedora 30, I found the nice splash screen to not work for me automatically. To get the bgrt Plymouth theme working I had to execute the following command:
 
 ```Bash

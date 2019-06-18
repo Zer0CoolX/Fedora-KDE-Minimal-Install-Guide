@@ -198,6 +198,15 @@ reboot
 ```
 This should provide the nice splash screens for boot and LUKs login. This is sometimes refered to as flicker free boot and seems to apply mostly to machines using Intel GPU's (i915).
 
+**Remove QT5-qDBusViewer**
+A weak dependancy gets installed that I cannot figure out how to avoid during the install of packages required to run KDE. It can however be removed after the fact if you have no need for it. As far as I can tell, its used in debuging and programming...so unless you are a developer you likely do not need it.
+
+To remove it, run the following command:
+
+```Bash
+dnf remove qt5-qdbusviewer
+```
+
 **Helpful Commands**
 * `dnf grouplist` (Lists all available groups to install)
 * `dnf groupinfo "group name"` (Lists all the packages and groups contained within a group. Replace `group name` with the actual group name)

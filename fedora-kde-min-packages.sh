@@ -75,5 +75,4 @@ dnf install \
   sni-qt \
   system-config-keyboard \
   system-config-language \
-  system-config-users \
   xorg-x11-drv-libinput

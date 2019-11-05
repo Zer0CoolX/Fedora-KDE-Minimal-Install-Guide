@@ -1,5 +1,3 @@
-**UNTESTED for Fedora 31** - With Fedora 31 on the horizon, I will be testing this method to be sure it continues to work properly. Once I am comfortable its still working, I will remove this notice. Until then, try at your own risk in Fedora 31.
-
 ## Fedora KDE Minimal Install
 A guide to install Fedora Linux with the KDE Plasma Desktop Environment (DE) from a minimal Fedora installation. This will allow better control over which packages are included in Fedora KDE and result in a cleaner, lighter Fedora installation than the official Fedora KDE spin offers. The guide will provide step-by-step instructions to accomplish installing the KDE DE on top of a minimal Fedora install. I will also include optional, simple scripts to help with the process of installing the required packages to setup KDE on a minimal Fedora installation.
 
@@ -26,7 +24,7 @@ I am posting this as personal reference but also for others benefit in case they
 * Willingness to use the terminal to setup and configure some packages and settings.
 * Willingness to troubleshoot and work out problems you may encounter specific to your unique setup/machine/environment.
 
-## 1. Install Fedora Minimal
+## 1. Install Fedora Minimal (Fedora 31 steps may differ slightly)
 In this part of the guide we are installing Fedora minimal from the boot media created as listed in the above requirements. Instead of re-writing what has already been documented, I will outline the process and provide links to official documenation. Take some liberties with your own setup depending on your wants and needs.
 
 1. Boot from the installation media. [Booting the Installation](https://docs.fedoraproject.org/en-US/fedora/f30/install-guide/install/Booting_the_Installation/). Here you select the option to install Fedora
@@ -84,8 +82,9 @@ From here on in this guide I will assume that a given machine has a working inte
 The following packages can be installed issuing a single comand of:
 
 ```Bash
-dnf install NetworkManager-config-connectivity-fedora adwaita-gtk2-theme bluedevil breeze-icon-theme cagibi colord-kde cups-pk-helper dolphin firewall-config glibc-all-langpacks gnome-keyring-pam kcm_systemd kde-gtk-config kde-partitionmanager kde-print-manager kde-settings-pulseaudio kde-style-breeze kdegraphics-thumbnailers kdeplasma-addons kdialog kdnssd kf5-akonadi-server kf5-akonadi-server-mysql kf5-baloo-file kf5-kipi-plugins khotkeys kinfocenter kmenuedit konsole5 kscreen kscreenlocker ksshaskpass ksysguard kwalletmanager5 kwebkitpart kwin pam-kwallet phonon-qt5-backend-gstreamer pinentry-qt plasma-breeze plasma-desktop plasma-desktop-doc plasma-drkonqi plasma-nm plasma-nm-l2tp plasma-nm-openconnect plasma-nm-openswan plasma-nm-openvpn plasma-nm-pptp plasma-nm-vpnc plasma-pa plasma-user-manager plasma-workspace plasma-workspace-geolocation polkit-kde qt5-qtbase-gui qt5-qtdeclarative sddm sddm-breeze sddm-kcm sni-qt xorg-x11-drv-libinput setroubleshoot system-config-users system-config-keyboard system-config-language @"Hardware Support" @base-x @Fonts @"Common NetworkManager Submodules"
+dnf install NetworkManager-config-connectivity-fedora adwaita-gtk2-theme bluedevil breeze-icon-theme cagibi colord-kde cups-pk-helper dolphin firewall-config glibc-all-langpacks gnome-keyring-pam kcm_systemd kde-gtk-config kde-partitionmanager kde-print-manager kde-settings-pulseaudio kde-style-breeze kdegraphics-thumbnailers kdeplasma-addons kdialog kdnssd kf5-akonadi-server kf5-akonadi-server-mysql kf5-baloo-file kf5-kipi-plugins khotkeys kinfocenter kmenuedit konsole5 kscreen kscreenlocker ksshaskpass ksysguard kwalletmanager5 kwebkitpart kwin pam-kwallet phonon-qt5-backend-gstreamer pinentry-qt plasma-breeze plasma-desktop plasma-desktop-doc plasma-drkonqi plasma-nm plasma-nm-l2tp plasma-nm-openconnect plasma-nm-openswan plasma-nm-openvpn plasma-nm-pptp plasma-nm-vpnc plasma-pa plasma-user-manager plasma-workspace plasma-workspace-geolocation polkit-kde qt5-qtbase-gui qt5-qtdeclarative sddm sddm-breeze sddm-kcm sni-qt xorg-x11-drv-libinput setroubleshoot system-config-keyboard system-config-language @"Hardware Support" @base-x @Fonts @"Common NetworkManager Submodules"
 ```
+Note: For Fedora 30 and earlier you may also need to install the `system-config-users package`.
 
 The above will get you everything needed to boot into a GUI to login, then KDE Plasma 5 DE. It will include networking, Dolphin as the file manager, Konsole as the terminal emulator and settings/admin stuff. The only KDE apps installed with the above that stand out are Dolphin, Konsole and kwallet.
 
@@ -191,22 +190,13 @@ This will install the packages, you will still need to execute the commands to e
 The following are some bits of information to help with the processes in this guide.
 
 **Fixing/Setting Splash Screen and LUKs GUI Login**
+This should provide the nice splash screens for boot and LUKs login. This is sometimes refered to as flicker free boot and seems to apply mostly to machines using Intel GPU's (i915).
 
-In at least Fedora 30, I found the nice splash screen to not work for me automatically. To get the bgrt Plymouth theme working I had to execute the following command:
+In Fedora 30 (Seems to work without this in Fedora 31), I found the nice splash screen to not work for me automatically. To get the bgrt Plymouth theme working I had to execute the following command:
 
 ```Bash
 sudo plymouth-set-default-theme -R bgrt
 reboot
-```
-This should provide the nice splash screens for boot and LUKs login. This is sometimes refered to as flicker free boot and seems to apply mostly to machines using Intel GPU's (i915).
-
-**Remove QT5-qDBusViewer**
-A weak dependancy gets installed that I cannot figure out how to avoid during the install of packages required to run KDE. It can however be removed after the fact if you have no need for it. As far as I can tell, its used in debuging and programming...so unless you are a developer you likely do not need it.
-
-To remove it, run the following command:
-
-```Bash
-dnf remove qt5-qdbusviewer
 ```
 
 **Helpful Commands**
@@ -223,6 +213,7 @@ dnf remove qt5-qdbusviewer
 This guide should provide a solid foundation for a lean, minimalistic Fedora KDE install. If you find any packages in the [Required Packages](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#required-packages) section that can be removed without introducing issues please let me know.
 
 I have tested this method so far with:
+* Fedora 31
 * Fedora 30
 * Fedora 29
 * Fedora 28

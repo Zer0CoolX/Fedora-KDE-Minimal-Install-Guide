@@ -213,7 +213,8 @@ reboot
 ## Final Thoughts
 This guide should provide a solid foundation for a lean, minimalistic Fedora KDE install. If you find any packages in the [Required Packages](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#required-packages) section that can be removed without introducing issues please let me know.
 
-I have tested this method so far with:
+I have tested this method so far with (the older the version the less likely to still work):
+* Fedora 32
 * Fedora 31
 * Fedora 30
 * Fedora 29

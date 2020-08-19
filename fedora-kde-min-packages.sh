@@ -11,14 +11,13 @@ dnf install \
   @"Common NetworkManager Submodules" \
   @"Fonts" \
   @"Hardware Support" \
-  adwaita-gtk2-theme \
   bluedevil \
+  breeze-gtk \
   breeze-icon-theme \
   cagibi \
   colord-kde \
   cups-pk-helper \
   dolphin \
-  firewall-config \
   glibc-all-langpacks \
   gnome-keyring-pam \
   kcm_systemd \
@@ -36,7 +35,6 @@ dnf install \
   kf5-baloo-file \
   kf5-kipi-plugins \
   khotkeys \
-  kinfocenter \
   kmenuedit \
   konsole5 \
   kscreen \
@@ -73,6 +71,4 @@ dnf install \
   sddm-kcm \
   setroubleshoot \
   sni-qt \
-  system-config-keyboard \
-  system-config-language \
   xorg-x11-drv-libinput

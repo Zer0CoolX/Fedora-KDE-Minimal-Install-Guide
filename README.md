@@ -146,6 +146,8 @@ sudo dnf install --setopt=install_weak_deps=False package_name
 
 **Main Components**
 
+- `plasma-welcome` update messages, donation links and more
+- `plasma-desktop-doc` help pages for every program and the desktop
 - `@"Printing Support" cups-pk-helper kde-print-manager` for printing
 - `@"Input Methods"` needed for other languages
 - `@Multimedia` for video and audio playback (does not contain a graphical player)
@@ -191,13 +193,19 @@ sudo dnf install package_name
 
 - `kgpg` (manage PGP keys graphically)
 - `kate` (instead of `kwrite`, advanced KDE GUI text editor)
-- `kget` (KDE downloader/download manager)
-- `kcalc` (Simple KDE calculator)
-- `kmouth` (KDE speech synth frontend)
-- `kmousetool` (KDE automatic mouse clicker, broken in Wayland currently)
-- `kcharselect` (KDE character map)
-- `gwenview` (KDE fast and simple image and video viewer)
-- `spectacle` (KDE screenshot tool)
+- `kget` (download manager), `ktorrent` (torrent client)
+- `kcalc` (Simple calculator)
+- `kmouth` (speech synth frontend)
+- `kmousetool` (automatic mouse clicker, broken on Wayland currently)
+- `kcharselect` (character map)
+- `gwenview` (fast and simple image and video viewer, and editor)
+- `spectacle` (screenshot and video capture tool)
+- `kf5-akonadi-server kf5-akonadi-server-mysql kontact kaddressbook kmail korganizer merkuro` (the KDE contact, calendar and mail suite. Akonadi is not used by Thunderbird)
+- `kile` (LaTeX editor)
+- `tokodon` (Mastodon client)
+- `neochat` (Matrix client)
+- `kde-connect` (remote control and interact with your phone)
+- `filelight` (view your disk space usage)
 
 ### Other Packages
 Use `dnf repolist` or `ls /etc/yum.repos.d/` to see the available package repositories. You can add others, like [MullvadVPN](https://mullvad.net/de/download/vpn/linux), [Tailscale](https://tailscale.com/kb/1050/install-fedora), [Brave Browser](https://github.com/trytomakeyouprivate/braveinstall-fedora-atomic) or various user repositories from [COPR](https://copr.fedorainfracloud.org/) or [OpenSuse's OpenBuildService](https://build.opensuse.org/) (If the repo has Fedora RPMs, as OpenSuse RPMs are not completely compatible).

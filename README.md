@@ -1,4 +1,4 @@
-ok## Fedora KDE Minimal Install
+## Fedora KDE Minimal Install
 A guide to install Fedora Linux with the KDE Plasma Desktop Environment (DE) from a minimal Fedora installation. This will allow better control over which packages are included in Fedora KDE and result in a lighter Fedora installation than the official Fedora KDE spin offers. The guide will provide step-by-step instructions. I will also include optional, simple scripts to help with the process of installing the required packages.
 
 I found the official Fedora KDE spin to be bloated and I was not the only person who felt this way about Fedora's official KDE spin. Through a graphical software store users can choose the software they prefer.
@@ -31,7 +31,7 @@ In this part of the guide we are installing Fedora minimal from the boot media. 
 Note: Many Anaconda steps are not documented anymore. Fedora will switch to their Webinstaller in a future release. General steps should be similar.
 
 1. Boot from the installation media. [Booting the Installation](https://docs.fedoraproject.org/en-US/fedora/f36/install-guide/install/Booting_the_Installation/).
-2. Follow Fedora's installer GUI called Anaconda (this may take several minutes). A generalized guide from the official documentation: [Installing in the Grpahic User Interface](https://docs.fedoraproject.org/en-US/fedora/f36/install-guide/install/Installing_Using_Anaconda/#sect-installation-graphical-mode).
+2. Follow Fedora's installer GUI called Anaconda (this may take several minutes). A generalized guide from the official documentation: [Installing in the Graphic User Interface](https://docs.fedoraproject.org/en-US/fedora/f36/install-guide/install/Installing_Using_Anaconda/#sect-installation-graphical-mode).
 3. Select your language.
 
 The [Installation Summary](https://docs.fedoraproject.org/en-US/fedora/f36/install-guide/install/Installing_Using_Anaconda/#sect-installation-gui-installation-summary) screen in Anaconda acts as a portal to all of the choices we need to make. Some portions of this screen take longer to load than other. The order of configuring does not matter. Below I will list them in the order I typically find the options load in.
@@ -229,6 +229,8 @@ flatpak remote-add flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 You might want to add Flathub as `--user`, apps will install only on your user account and you can skip the first 2 lines, creating the `flatpak` group.
 
+[A list of Flatpak repositories is here](https://github.com/trytomakeyouprivate/Flatpak-remotes)
+
 ### Distrobox, Podman
 
 Distrobox allows to use various Distributions userspaces to use apps made not available for Fedora. It is also useful for isolating dependencies and keeping a clean system, for testing beta software, installing selfcompiled programs etc.
@@ -238,7 +240,7 @@ sudo dnf install podman distrobox
 distrobox-create Box1 -i TAB
 ```
 
-use bash autocompletion to list the available images.
+use bash autocompletion to list the available images. [Here are many advanced tutorials, what you can do with Distrobox](https://github.com/89luca89/distrobox/blob/main/docs/useful_tips.md)
 
 ### Virtual Machines
 
@@ -248,6 +250,8 @@ If you want to test different distributions, run Windows or various other operat
 sudo groupadd libvirt
 sudo usermod -aG libvirt $USER
 sudo dnf install -y qemu qemu-kvm virt-manager
+# enable the needed sockets
+sudo systemctl enable virtqemud.socket virtnetworkd.socket virtstoraged.socket virtnodedevd.socket
 ```
 
 If you want to emulate different CPU architectures, use `dnf search qemu-` to find them.

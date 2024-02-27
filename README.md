@@ -46,7 +46,26 @@ The [Installation Summary](https://docs.fedoraproject.org/en-US/fedora/f36/insta
 
 Progress will be shown on screen and when complete the computer will reboot and load to a terminal shell, where you login with your created user account.
 
-## 2. Installing KDE Plasma Desktop Environtment
+## 2.1 Shell Script to Install Required Packages (Optional)
+The `fedora-kde-min-packages.sh` script in this repo can be used to install all of the required packages (does not include recommended or optional). You may execute the script as is or add your desired packages (or remove ones) to the script.
+
+Execute the script after [mounting it the external drive to your system](#Mounting-the-external-drive) or by connecting over ssh.
+
+Copy the script to your home and make it executable:
+
+```bash
+cp /path/to/fedora-kde-min-packages.sh ~/
+sudo chmod +x ~/fedora-kde-min-packages.sh
+sudo ~/fedora-kde-min-packages.sh
+```
+
+or download it straight into bash:
+
+```bash
+curl https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide/raw/master/fedora-kde-min-packages.sh | bash
+```
+
+## 2.2 Manually Installing KDE Plasma Desktop Environtment
 
 ### Optional: Connect over ssh
 
@@ -54,7 +73,7 @@ If you have a second machine, it may be easiest to connect over ssh to do the in
 
 On your fresh installed fedora system, do `sudo systemctl start sshd`, which will start the ssh server just for this boot. You will be prompted to enter a password, which is used for logging in. Use `hostname -I` to get the local IP address of the device.
 
-On your second machine, use `ssh USERNAME@IPADDRESS`, where the username is the one you set in anaconda. Enter the password and you can remote control the machine!
+On your second machine, use `ssh USERNAME@IPADDRESS`, where the username is the one you set in anaconda, and the ipaddress is the result of `hostname -I` on the fresh install. Enter the password and you can remote control the machine!
 
 ### Package installation
 
@@ -67,43 +86,10 @@ I will be breaking this down into four (4) groups:
 
 As a note, packages styled as `@"Package Name"` are package groups that install many packages.
 
-### Wifi Networking
-Before diving in to installing packages, if you are using Wifi for your network/internet, it may come as a surprise that while the Fedora Anaconda Installer may have "just worked" with your wifi... a minimal Fedora installation will very likely not. This creates a conundrum as we need internet to install the packages we want while likely needing some packages to install and setup Wifi.
-
-Try to execute the below `nmcli` commands as they may already work, otherwise follow these explanations. Also if you also have a wired connection, you can skip this, install KDE and in the end Wifi may "just work".
-
-#### Finding the needed drivers
-The way to resolve this (at least one way) is to have an external media with the required packages for Wifi copied to it. This should be a USB device or drive **not** also used as the boot media. Everyone has varying Wifi NIC chipsets and needs different drivers. It is up to you to determine what Wifi chipset you are using and what the proper firmware for it is.
-
-[RPMFind is useful to find the packages you need](https://www.rpmfind.net/), download the packages for your current Fedora release, e.g. F39 and arch:
-- mostly `x86_64`, very old hardware has `x86`/`x86_32`
-- ARM hardware likely needs `aarch64` (If you are on an Apple Silicon Mac, stop and install [Asahi remix!](https://asahilinux.org/fedora))
-
-These packages should work for all officially supported Wifi cards, while some may need proprietary firmware. In such a case, just replace your fifi card, as supported ones are cheap and save you lots of troubles on future updates.
-
-- `NetworkManager-wifi`
-- `wpa_supplicant`
-- `iw`
-- `iwlegacy-firmware`, `iwlwifi-dvm-firmware` and `iwlwifi-mvm-firmware`
-
-#### Mounting the external drive
-Use `lsblk` to see the mounted drives, your drive will be somewhere in `/dev/sdXY`, where `X` is a letter and `Y` is a number, like `/dev/sda1`.
-
-Mount that drive using udisks2, which is what the GUI desktop environment uses (and for some reason it works better):
-
-`udisksctl mount -b /dev/sdXY`
-
-Now move to that directory that udisks mounted the filesystem to: `cd /path/to/mount`. (If you forgot where that was, use `udisksctl info -b /dev/sdXY`).
-
-To install the above use something like `sudo dnf install --disablerepo='*' ./package_name`, replacing `package_name` with one of the above package names.
-
-If that fails because of missing dependencies, ***listen to dnf and fix those dependencies!*** If you want to ignore them though, you can skip the check with `--setopt=strict=0`.
-
-Once all the packages are installed, it may be a good idea to `reboot`.
+#### Connecting to the Wifi
 
 [Fedora Docs](https://fedoraproject.org/wiki/Networking/CLI#Wifi), [Ubuntu Docs](https://docs.ubuntu.com/core/en/stacks/network/network-manager/docs/configure-wifi-connections).
 
-#### Connecting to the Wifi
 Connecting to a network should work like this:
 
 ```bash
@@ -126,15 +112,17 @@ This will install a base KDE Plasma Wayland session, including networking and co
 ```bash
 sudo dnf install -y --setopt=install_weak_deps=False\
 @"Hardware Support" @Fonts\
-bluedevil breeze-gtk breeze-icon-theme colord-kde dolphin glibc-all-langpacks gnome-keyring-pam kde-gtk-config kde-partitionmanager kde-style-breeze kdegraphics-thumbnailers kdeplasma-addons kdialog kdnssd kf5-baloo-file kf5-kipi-plugins kf5-kwayland khotkeys kmenuedit konsole5 kscreen kscreenlocker ksshaskpass kwalletmanager5 kwin-wayland kwrite libinput libwayland-* NetworkManager-config-connectivity-fedora pam-kwallet phonon-qt5-backend-gstreamer pinentry-qt plasma-breeze plasma-desktop plasma-desktop-doc plasma-nm plasma-pa plasma-systemmonitor plasma-workspace-geolocation plasma-workspace-wallpapers plasma-workspace-wayland polkit-kde qt5-qtbase-gui qt5-qtdeclarative qt6-qtwayland sddm-breeze sddm-kcm sddm-wayland-plasma sni-qt vulkan wayland-utils xorg-x11-server-Xwayland xwaylandvideobridge
+bluedevil breeze-gtk breeze-icon-theme colord-kde dolphin glibc-all-langpacks gnome-keyring-pam kde-gtk-config kde-partitionmanager kde-style-breeze kdegraphics-thumbnailers kdeplasma-addons kdialog kdnssd kf5-baloo-file kf5-kipi-plugins kf5-kwayland khotkeys kmenuedit konsole5 kscreen kscreenlocker ksshaskpass kwalletmanager5 kwin-wayland kwrite libinput libwayland-* mesa-dri-drivers mesa-va-drivers NetworkManager-config-connectivity-fedora pam-kwallet phonon-qt5-backend-gstreamer pinentry-qt plasma-breeze plasma-desktop plasma-desktop-doc plasma-nm plasma-pa plasma-systemmonitor plasma-workspace-geolocation plasma-workspace-wallpapers plasma-workspace-wayland polkit-kde qt5-qtbase-gui qt5-qtdeclarative qt6-qtwayland sddm-breeze sddm-kcm sddm-wayland-plasma sni-qt vulkan wayland-utils xorg-x11-server-Xwayland xwaylandvideobridge
 ```
 
 Now we need to permanently enable the graphical login with SDDM:
 
 ```bash
-sudo systemctl enable --now sddm
+sudo systemctl enable --now sddm &&\
 sudo systemctl set-default graphical.target
 ```
+
+It is important to run the second command, otherwise SDDM will not show on reboots, thats why they are combined with `&&`.
 
 SDDM will load and you can login graphically. If you where connected over ssh you can close it now!
 
@@ -147,7 +135,7 @@ sudo dnf install --setopt=install_weak_deps=False package_name
 
 **Main Components**
 
-- `plasma-welcome` update messages, donation links and more
+- `plasma-welcome plasma-welcome-fedora` update messages, donation links and more
 - `plasma-desktop-doc` help pages for every program and the desktop
 - `@"Printing Support" cups-pk-helper kde-print-manager` for printing
 - `@"Input Methods"` needed for other languages
@@ -165,6 +153,7 @@ sudo dnf install --setopt=install_weak_deps=False package_name
 - `kfind` (advanced file search)
 - `plasma-pk-updates` (KDE applet for software updates, when not using Discover)
 - `plasma-discover plasma-discover-notifier` (GUI Application store, replacement for `dnf` and `flatpak` through the terminal)
+- `dnfdragora` (traditional GUI software manager for dnf)
 - `firewall-config` (GUI for working with firewalld, the default firewall included with Fedora)
 
 ### Media support
@@ -266,19 +255,6 @@ sudo systemctl enable virtqemud.socket virtnetworkd.socket virtstoraged.socket v
 ```
 
 If you want to emulate different CPU architectures, use `dnf search qemu-` to find them.
-
-## Shell Script to Install Required Packages (Optional)
-The `fedora-kde-min-packages.sh` script in this repo can be used to install all of the required packages (does not include recommended or optional). You may execute the script as is or add your desired packages (or remove ones) to the script.
-
-Execute the script after [mounting it the external drive to your system](#Mounting-the-external-drive)
-
-Copy the script to your home and make it executable:
-
-```bash
-cp /path/to/fedora-kde-min-packages.sh ~/
-sudo chmod +x ~/fedora-kde-min-packages.sh
-sudo ~/fedora-kde-min-packages.sh
-```
 
 ## Tips
 The following are some bits of information to help with the processes in this guide.

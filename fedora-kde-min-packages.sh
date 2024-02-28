@@ -3,6 +3,7 @@
 echo "Installing the needed packages."
 sudo dnf install -y --setopt=install_weak_deps=False\
 @"Hardware Support" @Fonts\
+ark \
 bluedevil \
 breeze-gtk \
 breeze-icon-theme \

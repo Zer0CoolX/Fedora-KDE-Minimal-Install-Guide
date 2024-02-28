@@ -7,22 +7,19 @@ The origin of this comes from my post on Reddit, [[How-To] Minimal KDE Install o
 
 This isnt an extreme take on minimalism. There are likely packages that can be excluded from my guide and have a machine still work.
 
-Note: [Fedora Kinoite / Fedora Atomic KDE](fedoraproject.org/kinoite) has a very small set of apps preinstalled and follows are different, more reliable and secure packaging model.
+Note: [Fedora Kinoite / Fedora Atomic KDE](https://fedoraproject.org/kinoite) has a very small set of apps preinstalled and follows are different, more reliable and secure packaging model.
 
 **Warning:**
 
 I will assume for the rest of this guide that Fedora Linux will be installed on a physical machine as the only OS. Be sure that if the computer was previously used, all files and information needed has been backed up externally. Follow these directions at your own risk and assume full responsibility for the outcome. It is up to you to determine if your computer is compatible with Fedora and to fix issues occuring during the process.
 
 ## Resources for Installing Fedora KDE Minimally
-- Fedora Everything Netinstall ISO can be downloaded from [here](https://alt.fedoraproject.org/). For most people the 64 bit ISO will be the proper ISO to use.
+- Fedora Everything Netinstall ISO can be downloaded [here](https://alt.fedoraproject.org/). For most people the 64 bit ISO will be the proper ISO to use.
 
 ## Requirements for Fedora KDE Minimal
 - Fedora Everything ISO. Made bootable via a physical disc, USB drive or via PXE. Official documentation on [Preparing Boot Media](https://docs.fedoraproject.org/en-US/fedora/latest/getting-started/#_prepare_boot_media)
 - Internet connection. The ISO above includes only the packages required to run the installer. All selected packages are downloaded over the internet to install. Post minimal install, internet will be required to add the packages we need.
-- If using Wifi (see the [Wifi Networking](https://github.com/Zer0CoolX/Fedora-KDE-Minimal-Install-Guide#wifi-networking) portion of this guide):
-  - Know what make and chipset you are using.
-  - Have an external drive or USB stick handy.
-  - Place the required wifi card drivers + install instructions on the external media.
+- Wifi should work out of the box. IF not, just replace your wifi card, which will spare you a lot of troubles.
 - You will use the terminal. Issues may occur, that you need to fix.
 
 ## 1. Install Fedora Minimal
@@ -112,7 +109,7 @@ This will install a base KDE Plasma Wayland session, including networking and co
 ```bash
 sudo dnf install -y --setopt=install_weak_deps=False\
 @"Hardware Support" @Fonts\
-bluedevil breeze-gtk breeze-icon-theme colord-kde dolphin glibc-all-langpacks gnome-keyring-pam kde-gtk-config kde-partitionmanager kde-style-breeze kdegraphics-thumbnailers kdeplasma-addons kdialog kdnssd kf5-baloo-file kf5-kipi-plugins kf5-kwayland khotkeys kmenuedit konsole5 kscreen kscreenlocker ksshaskpass kwalletmanager5 kwin-wayland kwrite libinput libwayland-* mesa-dri-drivers mesa-va-drivers NetworkManager-config-connectivity-fedora pam-kwallet phonon-qt5-backend-gstreamer pinentry-qt plasma-breeze plasma-desktop plasma-desktop-doc plasma-nm plasma-pa plasma-systemmonitor plasma-workspace-geolocation plasma-workspace-wallpapers plasma-workspace-wayland polkit-kde qt5-qtbase-gui qt5-qtdeclarative qt6-qtwayland sddm-breeze sddm-kcm sddm-wayland-plasma sni-qt vulkan wayland-utils xorg-x11-server-Xwayland xwaylandvideobridge
+bluedevil breeze-gtk breeze-icon-theme colord-kde dolphin glibc-all-langpacks gnome-keyring-pam kde-gtk-config kde-partitionmanager kde-style-breeze kdegraphics-thumbnailers kdeplasma-addons kdialog kdnssd kf5-baloo-file kf5-kipi-plugins kf5-kwayland khotkeys kmenuedit konsole5 kscreen kscreenlocker ksshaskpass kwalletmanager5 kinfocenter kwin-wayland kwrite libinput libwayland-* mesa-dri-drivers mesa-va-drivers NetworkManager-config-connectivity-fedora pam-kwallet phonon-qt5-backend-gstreamer pinentry-qt plasma-breeze plasma-desktop plasma-desktop-doc plasma-nm plasma-pa plasma-systemmonitor plasma-workspace-geolocation plasma-workspace-wallpapers plasma-workspace-wayland polkit-kde qt5-qtbase-gui qt5-qtdeclarative qt6-qtwayland sddm-breeze sddm-kcm sddm-wayland-plasma sni-qt vulkan wayland-utils xorg-x11-server-Xwayland xwaylandvideobridge
 ```
 
 Now we need to permanently enable the graphical login with SDDM:
@@ -125,6 +122,15 @@ sudo systemctl set-default graphical.target
 It is important to run the second command, otherwise SDDM will not show on reboots, thats why they are combined with `&&`.
 
 SDDM will load and you can login graphically. If you where connected over ssh you can close it now!
+
+### Disabling baloo
+The only "annoyance" your system may now have is baloo. This file indexer program is known to cause troubles, need a lot of resources and sometimes hang. 
+
+Note, that you dont need to disable it at all, but you can.
+
+```bash
+balooctl disable
+```
 
 ### Recommended Packages
 The following packages are not strictly required, but likely offer a good experience.
@@ -196,6 +202,13 @@ sudo dnf install package_name
 - `neochat` (Matrix client)
 - `kde-connect` (remote control and interact with your phone)
 - `filelight` (view your disk space usage)
+
+### Useful terminal tools
+
+- `eza bat ripgrep skim`: modern coreutil replacements in rust for `ls cat grep fzf`
+- `htop powertop nvtop btop`: various system monitors
+- `glow`: rust terminal markdown viewer, not yet in Fedora repos, [COPR](https://copr.fedorainfracloud.org/coprs/brettgilio/repo)
+- `zellij`: rust `tmux` replacement, not yet in Fedora repos, [COPR](https://copr.fedorainfracloud.org/coprs/sramanujam/zellij)
 
 ### Other Packages
 Use `dnf repolist` or `ls /etc/yum.repos.d/` to see the available package repositories. You can add others, like [MullvadVPN](https://mullvad.net/de/download/vpn/linux), [Tailscale](https://tailscale.com/kb/1050/install-fedora), [Brave Browser](https://github.com/trytomakeyouprivate/braveinstall-fedora-atomic) or various user repositories from [COPR](https://copr.fedorainfracloud.org/) or [OpenSuse's OpenBuildService](https://build.opensuse.org/) (If the repo has Fedora RPMs, as OpenSuse RPMs are not completely compatible).

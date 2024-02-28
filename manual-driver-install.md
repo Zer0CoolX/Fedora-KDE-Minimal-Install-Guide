@@ -12,7 +12,7 @@ The way to resolve this (at least one way) is to have an external media with the
 - mostly `x86_64`, very old hardware has `x86`/`x86_32`
 - ARM hardware likely needs `aarch64` (If you are on an Apple Silicon Mac, stop and install [Asahi remix!](https://asahilinux.org/fedora))
 
-These packages should work for all officially supported Wifi cards, while some may need proprietary firmware. In such a case, just replace your fifi card, as supported ones are cheap and save you lots of troubles on future updates.
+These packages should work for all officially supported Wifi cards, while some may need proprietary firmware. In such a case, just replace your wifi card, as supported ones are cheap and save you lots of troubles on future updates.
 
 - `NetworkManager-wifi`
 - `wpa_supplicant`

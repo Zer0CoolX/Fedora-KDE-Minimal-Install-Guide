@@ -11,6 +11,8 @@ colord-kde \
 dolphin \
 glibc-all-langpacks \
 gnome-keyring-pam \
+intel-media-driver \
+libva-utils libvdpau-va-gl \
 kde-gtk-config \
 kde-partitionmanager \
 kde-style-breeze \

@@ -109,7 +109,7 @@ This will install a base KDE Plasma Wayland session, including networking and co
 ```bash
 sudo dnf install -y --setopt=install_weak_deps=False\
 @"Hardware Support" @Fonts\
-bluedevil breeze-gtk breeze-icon-theme colord-kde dolphin glibc-all-langpacks gnome-keyring-pam kde-gtk-config kde-partitionmanager kde-style-breeze kdegraphics-thumbnailers kdeplasma-addons kdialog kdnssd kf5-baloo-file kf5-kipi-plugins kf5-kwayland khotkeys kmenuedit konsole5 kscreen kscreenlocker ksshaskpass kwalletmanager5 kinfocenter kwin-wayland kwrite libinput libwayland-* mesa-dri-drivers mesa-va-drivers NetworkManager-config-connectivity-fedora pam-kwallet phonon-qt5-backend-gstreamer pinentry-qt plasma-breeze plasma-desktop plasma-desktop-doc plasma-nm plasma-pa plasma-systemmonitor plasma-workspace-geolocation plasma-workspace-wallpapers plasma-workspace-wayland polkit-kde qt5-qtbase-gui qt5-qtdeclarative qt6-qtwayland sddm-breeze sddm-kcm sddm-wayland-plasma sni-qt vulkan wayland-utils xorg-x11-server-Xwayland xwaylandvideobridge
+ark bluedevil breeze-gtk breeze-icon-theme colord-kde dolphin glibc-all-langpacks gnome-keyring-pam kde-gtk-config kde-partitionmanager kde-style-breeze kdegraphics-thumbnailers kdeplasma-addons kdialog kdnssd kf5-baloo-file kf5-kipi-plugins kf5-kwayland khotkeys kmenuedit konsole5 kscreen kscreenlocker ksshaskpass kwalletmanager5 kinfocenter kwin-wayland kwrite libinput libwayland-* mesa-dri-drivers mesa-va-drivers NetworkManager-config-connectivity-fedora pam-kwallet phonon-qt5-backend-gstreamer pinentry-qt plasma-breeze plasma-desktop plasma-desktop-doc plasma-nm plasma-pa plasma-systemmonitor plasma-workspace-geolocation plasma-workspace-wallpapers plasma-workspace-wayland polkit-kde qt5-qtbase-gui qt5-qtdeclarative qt6-qtwayland sddm-breeze sddm-kcm sddm-wayland-plasma sni-qt vulkan wayland-utils xorg-x11-server-Xwayland xwaylandvideobridge
 ```
 
 Now we need to permanently enable the graphical login with SDDM:
@@ -154,13 +154,15 @@ sudo dnf install --setopt=install_weak_deps=False package_name
 
 **Applications**
 
-- `ark` (Archive manager)
+- `gwenview` (Image and video viewer and image editor)
 - `okular` (PDF viewer and editor)
 - `kfind` (advanced file search)
 - `plasma-pk-updates` (KDE applet for software updates, when not using Discover)
 - `plasma-discover plasma-discover-notifier` (GUI Application store, replacement for `dnf` and `flatpak` through the terminal)
 - `dnfdragora` (traditional GUI software manager for dnf)
 - `firewall-config` (GUI for working with firewalld, the default firewall included with Fedora)
+- `setroubleshoot` (GUI SELinux helper program)
+- `clamav clamtk` (Antivirusscanner with or without GUI)
 
 ### Media support
 
@@ -194,7 +196,6 @@ sudo dnf install package_name
 - `kmouth` (speech synth frontend)
 - `kmousetool` (automatic mouse clicker, broken on Wayland currently)
 - `kcharselect` (character map)
-- `gwenview` (fast and simple image and video viewer, and editor)
 - `spectacle` (screenshot and video capture tool)
 - `kf5-akonadi-server kf5-akonadi-server-mysql kontact kaddressbook kmail korganizer merkuro` (the KDE contact, calendar and mail suite. Akonadi is not used by Thunderbird)
 - `kile` (LaTeX editor)
